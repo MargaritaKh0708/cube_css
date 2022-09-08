@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    justify-content: center;
+    background: #050505;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+}
+
+.cube {
+    animation: rotate 4s linear infinite;
+    transform-style: preserve-3d;
+    transform: rotate(-30deg);
+    position: relative;
+    height: 300px;
+    width: 300px;
+
+    @keyframes rotate {
+
+        from {
+            transform: rotateX(-30deg) rotateY(0deg);
+        }
+
+        to {
+            transform: rotateX(-30deg) rotateY(360deg);
+        }
+
+    }
+
+    & div {
+        transform-style: preserve-3d;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+
+
+        & span {
+            background: linear-gradient(black, green);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+
+            &:first-child {
+                transform: rotateY(0) translateZ(150px);
+            }
+
+            &:nth-child(2) {
+                transform: rotateY(90deg) translateZ(150px);
+            }
+
+            &:nth-child(3) {
+                transform: rotateY(180deg) translateZ(150px);
+            }
+
+            &:last-child {
+                transform: rotateY(270deg) translateZ(150px);
+            }
+
+        }
+
+    }
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(150px);
+    background: #222;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: 0;
+    top: 0;
+
+
+    &::before {
+        transform: translateZ(-380px);
+        box-shadow: 0 0 120px rgba(0, 255, 0, 0.2),
+            0 0 200px rgba(0, 255, 0, 0.4), 0 0 300px rgba(0, 255, 0, 0.6), 0 0 400px rgba(0, 255, 0, 0.8), 0 0 500px rgba(0, 255, 0, 1);
+        filter: blur(20px);
+        background: green;
+        position: absolute;
+        height: 300px;
+        width: 300px;
+        content: '';
+        left: 0;
+        top: 0;
+    }
+}
